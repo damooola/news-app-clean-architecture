@@ -1,0 +1,58 @@
+name: news_app
+description: "A new Flutter project."
+
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  #state management
+  flutter_bloc: ^9.1.0
+
+  #compare dart objects
+  equatable: ^2.0.7
+
+  #service locator
+  get_it: ^8.0.3
+  intl: ^0.20.2
+  #database
+  floor: ^1.5.0
+  #api requests
+  retrofit: ^4.4.2
+  flutter_hooks: ^0.21.2
+  cached_network_image: ^3.4.1
+  dio: ^5.8.0+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+  build_runner: ^2.4.13
+  floor_generator: ^1.5.0
+  retrofit_generator: ^9.1.5
+
+flutter:
+  uses-material-design: true
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: fonts/Inter_18pt-Black.ttf
+        - asset: fonts/Inter_18pt-Bold.ttf
+          weight: 700
+        - asset: fonts/Inter_18pt-Italic.ttf
+        - asset: fonts/Inter_18pt-Light.ttf
+          weight: 300
+        - asset: fonts/Inter_18pt-Medium.ttf
+        - asset: fonts/Inter_18pt-Regular.ttf
+        - asset: fonts/Inter_18pt-SemiBold.ttf
+        - asset: fonts/Inter_18pt-Thin.ttf
