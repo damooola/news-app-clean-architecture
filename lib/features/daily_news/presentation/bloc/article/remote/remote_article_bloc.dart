@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/core/resources/data_state.dart';
 import 'package:news_app/features/daily_news/domain/usecases/get_article.dart';
@@ -23,7 +22,7 @@ class RemoteArticleBloc extends Bloc<RemoteArticleEvent, RemoteArticleState> {
     if (dataState is DataSuccess && dataState.data!.isNotEmpty) {
       emit(RemoteArticleLoaded(dataState.data!));
     } else if (dataState is DataFailed) {
-      emit(RemoteArticleError(dataState.error as DioException));
+      emit(RemoteArticleError(dataState.error as Exception));
     }
   }
 }

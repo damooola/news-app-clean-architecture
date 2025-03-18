@@ -2,17 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/features/daily_news/presentation/bloc/article/remote/remote_article_bloc.dart';
+import 'package:news_app/features/daily_news/presentation/bloc/article/remote/remote_article_event.dart';
 import 'package:news_app/features/daily_news/presentation/bloc/article/remote/remote_article_state.dart';
 import 'package:news_app/features/daily_news/presentation/widgets/article_card.dart';
+import 'package:news_app/injection_container.dart';
 
 class DailyNews extends StatelessWidget {
   const DailyNews({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _buildAppBar(),
-      body: _buidBody(),
+    return BlocProvider(
+      create: (_) => sl<RemoteArticleBloc>()..add(const GetRemoteArticles()),
+      child: Scaffold(
+        appBar: _buildAppBar(),
+        body: _buidBody(),
+      ),
     );
   }
 }
@@ -44,7 +49,7 @@ Widget _buidBody() {
           },
         );
       } else if (state is RemoteArticleError) {
-        return Center(child: Text(state.error!.message!));
+        return Center(child: Text(state.error!.toString()));
       } else {
         return const SizedBox.shrink();
       }
